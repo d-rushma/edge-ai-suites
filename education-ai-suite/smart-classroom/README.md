@@ -54,7 +54,6 @@ The goal is to transform raw classroom recordings into concise, structured summa
   Download from [https://ffmpeg.org/download.html](https://ffmpeg.org/download.html), and add the `ffmpeg/bin` folder to your system `PATH`.
 ---
 
-<<<<<<< HEAD
 **Run your shell with admin privileges before starting the application.**
 
 **b. Clone Repository:**
@@ -69,10 +68,7 @@ The goal is to transform raw classroom recordings into concise, structured summa
 ```
 
 **c. Install Python dependencies:**
-=======
-**b. Install Python dependencies**  
 It’s recommended to create a **dedicated Python virtual environment** for the base dependencies.
->>>>>>> 6eab200f2f8ab007838c08d62ab85fd37b9f76ff
 
 ```bash
 python -m venv smartclassroom
@@ -85,12 +81,9 @@ pip install --upgrade -r requirements.txt
 ```
 ---
 
-<<<<<<< HEAD
-**d. [Optional] Install IPEX-LLM to use IPEX-based LLM model for summarization:**
-=======
-**c. [Optional] Create Python Venv for Ipex Based Summarizer**  
+
+**d. [Optional] Create Python Venv for Ipex Based Summarizer**  
 If you plan to use IPEX, create a separate virtual environment.
->>>>>>> 6eab200f2f8ab007838c08d62ab85fd37b9f76ff
 
 ```bash
 python -m venv smartclassroom_ipex
