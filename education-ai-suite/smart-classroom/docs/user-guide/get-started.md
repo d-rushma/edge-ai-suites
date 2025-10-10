@@ -1,58 +1,15 @@
-# 🎓 Smart Classroom
-The Smart Classroom project is a modular, extensible framework designed to process and summarize educational content using advanced AI models. It supports transcription, summarization, and future capabilities like video understanding and real-time analysis. 
+# Get Started
 
-## This project provides: 
+This guide walks you through installing dependencies, configuring defaults, and running the application.
 
-### 🔊 Audio file processing and transcription (e.g., Whisper, Paraformer) 
-### 🧠 Summarization using powerful LLMs (e.g., Qwen, LLaMA) 
-### 📦 Plug-and-play architecture for integrating new ASR and LLM models 
-### ⚙️ API-first design ready for frontend integration 
-### 🛠️ Ready-to-extend for real-time streaming, diarization, translation, and video analysis 
-The goal is to transform raw classroom recordings into concise, structured summaries for students, educators, and learning platforms.
+## Step 1: Install Dependencies
 
----
-### 💻 System Requirements
-
-- **OS:** Windows 11  
-- **Processor:** Intel® Core Ultra Series 1 (with integrated GPU support)  
-- **Memory:** 32 GB RAM (minimum recommended)  
-- **Storage:** At least 50 GB free (for models and logs)  
-- **GPU/Accelerator:** Intel® iGPU (Intel® Core Ultra Series 1, Arc GPU, or higher) for summarization acceleration  
-- **Python:** 3.12 or above  
-- **Node.js:** v18+ (for frontend) 
----
-### 🧩 Supported Models  
-
-#### 🔊 ASR (Automatic Speech Recognition)  
-- **Whisper (all models supported)**  
-  - Recommended: `whisper-small` or lower for CPU efficiency  
-  - Runs on **CPU** (Whisper is CPU-centric)  
-- **FunASR (Paraformer)**  
-  - Recommended for **Chinese transcription** (`paraformer-zh`)
-- ✅ Supports transcription of audio files up to 45 minutes in mp3 and wav formats
-
-#### 🧠 Summarization (LLMs)  
-- **Qwen Models (OpenVINO / IPEX)**  
-  - ✅ `Qwen2.0-7B-Instruct`  
-  - ✅ `Qwen2.5-7B-Instruct`
-- 💡 Summarization supports up to 7,500 tokens (≈ 45 minutes of audio) on GPU
-
-#### ⚖️ Supported Weight Formats  
-- **int8** → Recommended for lower-end CPUs (fast + efficient)  
-- **fp16** → Recommended for higher-end systems (better accuracy, GPU acceleration)  
-- **int4** → Supported, but may reduce accuracy (use only if memory-constrained)  
-
-💡 Run summarization on **GPU** (Intel® iGPU / Arc GPU) for faster performance.  
-
----
-
-### ✅ 1. **Install Dependencies**
+To install dependencies, do the following:
 
 **a. Install [FFmpeg](https://ffmpeg.org/download.html)** (required for audio processing):
 
 - On **Windows**:  
   Download from [https://ffmpeg.org/download.html](https://ffmpeg.org/download.html), and add the `ffmpeg/bin` folder to your system `PATH`.
----
 
 **Run your shell with admin privileges before starting the application**
 
@@ -66,7 +23,6 @@ The goal is to transform raw classroom recordings into concise, structured summa
   git checkout
   cd education-ai-suite
 ```
----
 
 **c. Install Python dependencies**
 
@@ -81,7 +37,6 @@ pip install --upgrade pip
 pip install --pre --upgrade ipex-llm[xpu_2.6] --extra-index-url https://download.pytorch.org/whl/xpu
 pip install --upgrade -r requirements.txt
 ```
----
 
 
 **d. [Optional] Create Python Venv for Ipex Based Summarizer**  
@@ -98,10 +53,9 @@ pip install --pre --upgrade ipex-llm[xpu_2.6] --extra-index-url https://download
 ```
 > 💡 *Use `smartclassroom` if you don’t need IPEX. Use `smartclassroom_ipex` if you want IPEX summarization.*
 
----
-### ⚙️ 2. Default Configuration
+## Step 2: Configure Defaults
 
-By default, the project uses Whisper for transcription and OpenVINO-based Qwen models for summarization.You can modify these settings in the configuration file:
+The default setup uses Whisper for transcription and OpenVINO Qwen models for summarization. You can customize these in the configuration file.
 
 ```bash
 asr:
@@ -126,7 +80,7 @@ asr:
   name: paraformer-zh
 ```
 
-* (Optional) If you want to use IPEX-based summarization, make sure IPEX-LLM is installed, env for ipex is activated and set following in `config`:
+* (Optional) If you are using IPEX-based summarization, make sure IPEX-LLM is installed, env for ipex is activated and set following in `config`:
 
 ```bash
 summarizer:
@@ -135,9 +89,8 @@ summarizer:
 
 **Important: After updating the configuration, reload the application for changes to take effect.**
 
----
+## Step 3: Run the Application
 
-### ✅ 3. **Run the Application**
 Activate the environment before running the application:
 
 ```bash
@@ -155,17 +108,16 @@ npm install
 npm run dev -- --host 0.0.0.0 --port 5173
 ```
 
-💡 Tips: You should see backend logs similar to this:
+## Check Logs
 
-```
+Once the backend starts, you can see the following logs:
+
+```bash
 pipeline initialized
 [INFO] __main__: App started, Starting Server...
 INFO:     Started server process [21616]
-INFO:     Waiting for application startup.
-INFO:     Application startup complete.
+	@@ -92,5 +166,6 @@ INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
 ```
 
-This means your pipeline server has started successfully and is ready to accept requests.
-
----
+This means your pipeline server is up and ready to accept requests.
