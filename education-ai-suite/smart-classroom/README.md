@@ -54,7 +54,7 @@ The goal is to transform raw classroom recordings into concise, structured summa
   Download from [https://ffmpeg.org/download.html](https://ffmpeg.org/download.html), and add the `ffmpeg/bin` folder to your system `PATH`.
 ---
 
-**Run your shell with admin privileges before starting the application.**
+**Run your shell with admin privileges before starting the application**
 
 **b. Clone Repository:**
 
@@ -66,8 +66,10 @@ The goal is to transform raw classroom recordings into concise, structured summa
   git checkout
   cd education-ai-suite
 ```
+---
 
-**c. Install Python dependencies:**
+**c. Install Python dependencies**
+
 It’s recommended to create a **dedicated Python virtual environment** for the base dependencies.
 
 ```bash
@@ -145,8 +147,6 @@ Run the backend:
 ```bash
 python main.py
 ```
-![alt text](docs\user-guide\backend_logs.png)
-
 
 - Bring Up Frontend:
 ```bash
